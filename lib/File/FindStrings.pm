@@ -6,6 +6,7 @@
 #
 
 package File::FindStrings v0.01.00;
+use strict;
 
 use File::FindStrings::Boilerplate 'script';
 

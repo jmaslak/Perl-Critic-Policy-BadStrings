@@ -6,6 +6,7 @@
 #
 
 package Perl::Critic::Policy::BadStrings;
+use strict;
 
 # ABSTRACT: Search for bad strings in source files
 
