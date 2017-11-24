@@ -71,11 +71,10 @@ use Readonly;
 Readonly::Scalar my $DESC => 'Bad string in source file';
 Readonly::Scalar my $EXPL => 'A "bad string" was found in the source file';
 
-use constant default_severity     => $SEVERITY_MEDIUM;
-use constant supported_parameters => qw(words);
-use constant default_themes       => qw(badstrings);
-
-use constant applies_to           => 'PPI::Document';
+sub default_severity     { return $SEVERITY_MEDIUM; }
+sub supported_parameters { return qw(words); }
+sub default_themes       { return qw(badstrings); }
+sub applies_to           { return 'PPI::Document'; }
 
 sub initialize_if_enabled ( $self, $config ) {
     $self->{_words} = [];
@@ -89,13 +88,13 @@ sub initialize_if_enabled ( $self, $config ) {
     return $TRUE;
 }
 
-sub violates($self, $elem, $doc) {
+sub violates ( $self, $elem, $doc ) {
     my $content = $elem->content();
 
-    my (@matches) = find_words_in_string($content, $self->{_words}->@*);
+    my (@matches) = find_words_in_string( $content, $self->{_words}->@* );
 
     if (@matches) {
-        return $self->violation($DESC . ': "' . $matches[0]->{word} . '"', $EXPL, $elem);
+        return $self->violation( $DESC . ': "' . $matches[0]->{word} . '"', $EXPL, $elem );
     } else {
         return;
     }
