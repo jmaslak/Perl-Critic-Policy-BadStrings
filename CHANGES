@@ -1,3 +1,7 @@
+0.101 - September 30, 2024
+Joelle Maslak <jmaslak@antelope.net>
+ * Compatibility with Perl 5.41.3
+
 0.100 - Initial Dev Version
 Joelle Maslak <jmaslak@antelope.net>
  * Initial Version
